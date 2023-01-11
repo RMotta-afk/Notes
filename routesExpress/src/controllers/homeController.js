@@ -1,8 +1,11 @@
-exports.homePage = (req, res, next) => {  
-        res.render('index');
-        next();
+exports.homePage = (req, res) => {
+    req.session.user = { name: 'Raphael', log: 'true'}
+    res.render('index');
+    return;
 }
 
-exports.secondPage = (req, res) => {
-    res.send('New one for posting');
+
+exports.postPage = (req, res) => {
+    res.send(req.body);
+    return;
 }
